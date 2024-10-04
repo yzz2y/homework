@@ -1,6 +1,6 @@
 ![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=About%20Me!&fontSize=90)
 
-## :lion:
+## 🦁
 
 멋쟁이사자처럼 프론트엔드 스쿨 12기 수강생 서현지입니다.<br />
 멋사를 통해 프론트엔드 개발자로서의 소양을 갖추고 싶습니다.<br />

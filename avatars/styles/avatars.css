@@ -14,7 +14,6 @@ span {
 }
 
 .profile-container {
-  overflow: hidden;
   width: 346px;
 }
 
@@ -22,7 +21,6 @@ span {
   float: left;
   width: 64px;
   height: 64px;
-  /* margin: 10px; */
   margin: 0 10px 20px 10px;
   position: relative;
 }
@@ -36,7 +34,7 @@ img {
 .online,
 .offline {
   position: absolute;
-  bottom: 2px;
+  bottom: 0px;
   right: 0px;
   width: 17px;
   height: 17px;

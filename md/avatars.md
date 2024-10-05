@@ -76,6 +76,7 @@
 ## 결과 화면
 
 ![caniuse-ie](./../assets/images/caniuse-ie.jpg)
+
 [**caniuse**](https://caniuse.com/) 사이트에서 여러 브라우저로 테스트할 수 있길래 flex를 지원하지 않는 브라우저중 하나인 Internet Explorer 9에 내가 배포한 github 페이지 주소를 주소창에 입력하여 접속해보았다.
 
 <br />

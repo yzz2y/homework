@@ -92,65 +92,73 @@
 
 - [x] 아바타 이미지는 배경 방식이 아닌 콘텐츠 이미지(\<img\> 요소)로 마크업한다. <br/>
 - [x] 이미지 `성능 최적화` 방법에 대해 고민해본다. <br/>
+
   > 이미지 성능 최적화를 위해 강의 시간에 배운 `지연 로딩`을 각 `img` 태그에 적용함
 
-```
-<img src="./../assets/avatars/face7.jpg" loading="lazy" alt="" />
-```
+  ```
+  <img src="./../assets/avatars/face7.jpg" loading="lazy" alt="" />
+  ```
 
 - [x] 아바타의 `상태 정보`를 알 수 있도록 정보를 제공한다. <br/>
+
   > 각 아바타 이미지 우측 하단에 상태 정보를 알리는 동그라미 `div` 구현
+  > SR(Screen Reader)에서도 상태 정보를 접할 수 있도록 동그라미 `div`에 `aria-label` 추가
+
+  ```
+  <div role="status-info" class="online" aria-label="온라인"></div>
+  ```
+
 - [x] 아바타 이미지의 크기 - 64px X 64px <br/>
 
-```
-img {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-}
-```
+  ```
+  img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+  }
+  ```
 
 - [x] 아바타 이미지 간의 간격 - 20px <br/>
 
-**`flex` 지원 환경**: 아바타 이미지들을 감싸는 `div`에 `gap`을 지정
+  **`flex` 지원 환경**: 아바타 이미지들을 감싸는 `div`에 `gap`을 지정
 
-```
-.profile-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    width: 316px;
-    justify-content: center;
+  ```
+  .profile-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      width: 316px;
+      justify-content: center;
+    }
+  ```
+
+  **`flex` 미지원 환경**: 아바타 이미지들 간의 `margin`을 지정
+
+  ```
+  .profile {
+    float: left;
+    width: 64px;
+    height: 64px;
+    margin: 0 10px 20px 10px;
+    position: relative;
   }
-```
-
-**`flex` 미지원 환경**: 아바타 이미지들 간의 `margin`을 지정
-
-```
-.profile {
-  float: left;
-  width: 64px;
-  height: 64px;
-  margin: 0 10px 20px 10px;
-  position: relative;
-}
-```
+  ```
 
 - [x] 회색 원 배경색 - #DBDBDB <br/>
 
-```
-.offline {
-  background-color: #dbdbdb;
-}
-```
+  ```
+  .offline {
+    background-color: #dbdbdb;
+  }
+  ```
 
 - [x] 초록색 원 배경색- #4CFE88 <br/>
 
-```
-.online {
-  background-color: #4cfe88;
-}
-```
+  ```
+  .online {
+    background-color: #4cfe88;
+  }
+  ```
 
 <br />
 

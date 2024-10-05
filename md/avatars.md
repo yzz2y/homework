@@ -27,9 +27,9 @@
 
 이런 방식으로 구현하라는 뜻으로 해석했다.
 
-2개의 css 코드 (float를 사용한 css 코드와 flex를 사용한 css 코드)로 구현해야하나 했는데 구글링을 하다가 css에 특정 기능을 지원하지 않는 브라우저를 위한 `@supports`라는 조건문이 있다는 것을 알게 되었다.
+2개의 css 코드 (`float`를 사용한 css 코드와 `flex`를 사용한 css 코드)로 구현해야하나 했는데 구글링을 하다가 css에 특정 기능을 지원하지 않는 브라우저를 위한 `@supports`라는 조건문이 있다는 것을 알게 되었다.
 
-기본 보여주기 값을 float를 사용한 레이아웃으로 해놓고 `@supports` 조건문을 통해 flex를 지원하는 환경에서는 flex를 사용한 레이아웃을 보여주도록 구현해보기로 했다.
+기본 보여주기 값을 `float`를 사용한 레이아웃으로 해놓고 `@supports` 조건문을 통해 `flex`를 지원하는 환경에서는 `flex`를 사용한 레이아웃을 보여주도록 구현해보기로 했다.
 
 <br />
 
@@ -45,7 +45,7 @@
 
 > - profile-container를 감싸는 전체 배경을 `div`로 구현
 > - **Flex 지원 환경**
->   > - 안에 profile-container를 가운데로 오게 하기 위해 **flex 컨테이너**로 구현하여 `justify-content`와 `align-items`를 모두 center로 지정
+>   > - 안에 profile-container를 가운데로 오게 하기 위해 **flex 컨테이너**로 구현하여 `justify-content`와 `align-items`를 모두 `center`로 지정
 
 ### profile-container
 
@@ -68,7 +68,7 @@
 
 #### status-info
 
-> - 활동 상태인 동그라미의 class를 online, 비활동 상태를 offline이라 명명
+> - 활동 상태인 동그라미의 `class`를 online, 비활동 상태를 offline이라 명명
 > - `img` 위에 올라와 우측 하단에 위치할 수 있도록 `absolute`로 설정한 후 right, bottom 간격을 지정함
 
 <br />
@@ -77,7 +77,7 @@
 
 ![caniuse-ie](./../assets/images/caniuse-ie.jpg)
 
-[**caniuse**](https://caniuse.com/) 사이트에서 여러 브라우저로 테스트할 수 있길래 flex를 지원하지 않는 브라우저중 하나인 Internet Explorer 9에 내가 배포한 github 페이지 주소를 주소창에 입력하여 접속해보았다.
+[**caniuse**](https://caniuse.com/) 사이트에서 여러 브라우저로 테스트할 수 있길래 `flex`를 지원하지 않는 브라우저중 하나인 Internet Explorer 9에 내가 배포한 github 페이지 주소를 주소창에 입력하여 접속해보았다.
 
 <br />
 
@@ -92,14 +92,14 @@
 
 - [x] 아바타 이미지는 배경 방식이 아닌 콘텐츠 이미지(\<img\> 요소)로 마크업한다. <br/>
 - [x] 이미지 `성능 최적화` 방법에 대해 고민해본다. <br/>
-  > 이미지 성능 최적화를 위해 강의 시간에 배운 `지연 로딩`을 각 img 태그에 적용함
+  > 이미지 성능 최적화를 위해 강의 시간에 배운 `지연 로딩`을 각 `img` 태그에 적용함
 
 ```
 <img src="./../assets/avatars/face7.jpg" loading="lazy" alt="" />
 ```
 
 - [x] 아바타의 `상태 정보`를 알 수 있도록 정보를 제공한다. <br/>
-  > 각 아바타 이미지 우측 하단에 상태 정보를 알리는 동그라미 div 구현
+  > 각 아바타 이미지 우측 하단에 상태 정보를 알리는 동그라미 `div` 구현
 - [x] 아바타 이미지의 크기 - 64px X 64px <br/>
 
 ```
@@ -111,14 +111,28 @@ img {
 ```
 
 - [x] 아바타 이미지 간의 간격 - 20px <br/>
-  > 아바타 이미지들을 감싸는 div에 gap을 지정
+
+**`flex` 지원 환경**: 아바타 이미지들을 감싸는 `div`에 `gap`을 지정
 
 ```
 .profile-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  width: 316px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 316px;
+    justify-content: center;
+  }
+```
+
+**`flex` 미지원 환경**: 아바타 이미지들 간의 `margin`을 지정
+
+```
+.profile {
+  float: left;
+  width: 64px;
+  height: 64px;
+  margin: 0 10px 20px 10px;
+  position: relative;
 }
 ```
 

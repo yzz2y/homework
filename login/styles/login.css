@@ -119,9 +119,13 @@ form {
 /* 로그인 상태 유지 & IP 보안 컨테이너 */
 .options {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   margin-block-start: 0.625rem;
+
+  @media (min-width: 768px) {
+    justify-content: space-between;
+  }
 }
 
 /* 로그인 상태 유지 */

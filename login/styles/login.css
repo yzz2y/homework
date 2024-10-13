@@ -91,6 +91,7 @@ form {
   font-size: 0.875rem;
   inline-size: 100%;
   block-size: 2.8125rem;
+  padding-inline-start: 0.875rem;
 
   border: 0.0625rem solid var(--light-gray);
   background-color: var(--white);

@@ -1,1 +1,206 @@
-/* CSS를 활용하여 레이아웃 및 스타일링을 완성해주세요 */
+/* 숨김 콘텐츠 */
+.sr-only {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  padding: 0;
+  margin: -0.0625rem;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* 리셋 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  box-shadow: none;
+}
+
+input {
+  border: 0;
+}
+
+button {
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Custom Properties */
+:root {
+  --font-size: 1rem;
+
+  --green: #03cf5d;
+  --white: #fff;
+  --black: #121212;
+  --light-gray: #dadada;
+  --gray: #999999;
+  --dark-gray: #666666;
+  --red: #ff1414;
+  --light-blue: #e9f0fd;
+  --blue: #24388d;
+
+  --main-font-size: var(--font-size);
+  --main-color: var(--green);
+  --main-font-color: var(--black);
+}
+
+/* 헤더와 메인을 감싸는 컨테이너 */
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3.125rem;
+  margin-block-start: 6.25rem;
+}
+
+/* 헤더(로고) */
+header {
+  display: flex;
+  justify-content: center;
+
+  img {
+    inline-size: 14.375rem;
+  }
+}
+
+/* 메인(로그인 폼) */
+main {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  inline-size: 100%;
+  padding: 0 1.25rem;
+
+  @media (min-width: 48rem) {
+    inline-size: 31.25rem;
+  }
+}
+
+/* 입력 서식 */
+.login-form__input {
+  font-size: 0.875rem;
+  inline-size: 100%;
+  block-size: 2.8125rem;
+
+  border: 0.0625rem solid var(--light-gray);
+  background-color: var(--white);
+
+  .password {
+    margin-block-start: 0.625rem;
+  }
+
+  &:focus {
+    border-color: var(--green);
+    background-color: var(--light-blue);
+  }
+}
+
+/* 로그인 버튼 */
+.login-button {
+  font-size: var(--main-font-size);
+  inline-size: 100%;
+  block-size: 2.8125rem;
+  margin-block-start: 1.25rem;
+
+  color: var(--white);
+  background-color: var(--green);
+}
+
+/* 로그인 상태 유지 & IP 보안 컨테이너 */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-start: 0.625rem;
+}
+
+/* 로그인 상태 유지 */
+.keep-loggedIn {
+  display: flex;
+  align-items: center;
+}
+
+.keep-loggedIn input {
+  display: none;
+}
+
+.keep-loggedIn__label {
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  margin: 0 0.3125rem 0 0;
+}
+
+.keep-loggedIn__checkbox {
+  display: inline-block;
+  background-image: url(./../../assets/login/checkbox-unchecked.svg);
+  cursor: pointer;
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+}
+
+.keep-loggedIn input:checked + .keep-loggedIn__checkbox {
+  background-image: url(./../../assets/login/checkbox-checked.svg);
+}
+
+.keep-loggedIn__checkbox:focus-visible {
+  border: 0.0625rem solid var(--blue);
+}
+
+/* IP 보안 */
+.ip-security {
+  display: none;
+
+  @media (min-width: 48rem) {
+    display: flex;
+    align-items: center;
+
+    input {
+      display: none;
+    }
+  }
+}
+
+.ip-security__switch {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.ip-security input:not(:checked) + .ip-security__switch::before {
+  content: "OFF";
+  color: var(--gray);
+}
+
+.ip-security input:checked + .ip-security__switch::before {
+  content: "ON";
+  color: var(--green);
+  margin: 0 0.25rem 0 0;
+}
+
+.ip-security__switch:focus-visible {
+  border: 0.0625rem solid var(--blue);
+}
+
+/* 유효성 검사 & 경고 메세지 */
+.invalid-email,
+.invalid-password {
+  display: none;
+  color: var(--red);
+}
+
+.email input:invalid ~ .invalid-email {
+  display: block;
+}
+
+.password input:invalid ~ .invalid-password {
+  display: block;
+}
